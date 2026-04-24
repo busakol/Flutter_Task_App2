@@ -1,11 +1,12 @@
 //ไฟล์ที่ใช้ทำงานต่างๆกับ Supabase
 //กรณี table เช่นCRUD ( Ceate, Read, Update, Delete) หรือการเชื่อมต่อกับฐานข้อมูล
 //กรณี backend เช่นUpload Delete GetUrl
+// ignore_for_file: non_constant_identifier_names
+
 import 'dart:io';
 
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:flutter_task_app/models/task.dart';
-import 'package:flutter/material.dart';
 
 class SupabaseService {
   //สร้าง instance/object/ตัวแทน ของ supabvase_flutter เพื่อจะทำงานต่างๆกับ Supabase
@@ -39,9 +40,9 @@ class SupabaseService {
   }
 
   //Method ลบ ไฟล์รูปออกจากบักเก็ต task_tb และ UpdateDeleteTaskUi
-  Future<void> deleteFileFromBucket(String task_imag_url) async {
+  Future<void> deleteFileFromBucket(String task_images_url) async {
     //การลบจะตัดเอาเฉพาะชื่อ
-    final fileName = task_imag_url.split('/').last;
+    final fileName = task_images_url.split('/').last;
     await supabase.storage.from('task_bk').remove([fileName]);
   }
 
